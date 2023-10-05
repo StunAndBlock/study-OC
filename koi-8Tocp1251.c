@@ -1,6 +1,5 @@
 #include <unistd.h>
 #include <stdlib.h>
-#include <fcntl.h>
 #define BUFSIZ 8192
 unsigned char* recode(ssize_t,unsigned char* buf);
 
