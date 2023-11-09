@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/timeb.h>
+#include <sys/time.h>
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
@@ -84,7 +85,7 @@ int main(int argc, char* argv[]) {
     int dist = atoi(argv[2]);
     int p;
     char bell = '\007';
-    struct timeb tp[1];
+    struct timeval tp;
     int jump;
 
     clrscr();
@@ -93,8 +94,8 @@ int main(int argc, char* argv[]) {
             usleep(PROCNUM - j);
             while (x < dist) {
                 gotoxy(x, j + 1, 'A' + j);
-                ftime(tp);
-                if ((tp[0].millitm % (j + 'A')) != j) continue;
+                gettimeofday(&tp,NULL);
+                if (((tp.tv_usec/1000)% (j + 'A')) != j) continue;
                 x++;
                 for (i = 0; i < 1000000; i++)
                     ;
