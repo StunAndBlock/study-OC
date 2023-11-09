@@ -158,7 +158,7 @@ int main(int argc, char* argv[]) {
             i=0;
             err=0;
         }
+        textmode(1);
     }
-    textmode(1);
     return (err);
 }
