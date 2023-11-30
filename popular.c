@@ -70,7 +70,6 @@ if(fork() == 0) {
   execl("/usr/bin/uniq", "uniq", "-c", "-i", (char*) 0);
   exit(6);
 }
-
 close(fdp1[0]); close(fdp1[1]);
 close(fdp2[0]); close(fdp2[1]);
 close(fdp3[0]); close(fdp3[1]);
